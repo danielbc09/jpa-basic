@@ -4,7 +4,6 @@ package com.daniel.jpa.jpainspring.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * Created by bautisj on 8/8/2018.
@@ -22,6 +21,7 @@ public class User {
     protected  User() {}
 
     public User(String name, String role) {
+        super();
         this.name = name;
         this.role = role;
     }
@@ -52,10 +52,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", role='" + role + '\'' +
-                '}';
+        return String.format("User [id=%s, name=%s, role=%s]", id, name, role);
     }
 }

@@ -1,10 +1,12 @@
-package com.daniel.jpa.jpainspring.entities;
-
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+package com.daniel.jpa.jpainspring.service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import com.daniel.jpa.jpainspring.entities.User;
+import org.springframework.stereotype.Repository;
+
 
 /**
  * Created by bautisj on 8/8/2018.
@@ -13,9 +15,9 @@ import javax.persistence.PersistenceContext;
 @Transactional
 public class UserDAOService {
 
+    @PersistenceContext
     private EntityManager entityManager;
 
-    @PersistenceContext
     public long insert(User user){
         entityManager.persist(user);
         return user.getId();
